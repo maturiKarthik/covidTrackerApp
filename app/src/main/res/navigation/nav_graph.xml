@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/countryCovidStats">
+
+    <fragment
+        android:id="@+id/countryCovidStats"
+        android:name="com.example.covidtracker.view.CountryCovidStatsFragment"
+        android:label="Country"
+        tools:layout="@layout/fragment_country_covid_stats">
+        <action
+            android:id="@+id/action_countryCovidStats_to_statesCovidStats"
+            app:destination="@id/statesCovidStats" />
+    </fragment>
+    <fragment
+        android:id="@+id/statesCovidStats"
+        android:name="com.example.covidtracker.view.StatesCovidStatsFragment"
+        android:label="State"
+        tools:layout="@layout/fragment_states_covid_stats">
+        <argument
+            android:name="country"
+            android:defaultValue="empty"
+            app:argType="string" />
+    </fragment>
+</navigation>
